@@ -1,0 +1,171 @@
+fileFormatVersion: 2
+guid: da57b3b6a55c9a04f9905ea85c96de47
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: body
+    100002: body_control
+    100004: Head
+    100006: head
+    100008: Hip
+    100010: L_arm
+    100012: L_foot
+    100014: L_foot_controls
+    100016: L_fore_arm
+    100018: L_hand
+    100020: L_leg
+    100022: L_Shoulder
+    100024: L_upper_leg
+    100026: //RootNode
+    100028: Neck
+    100030: R_arm
+    100032: R_foot
+    100034: R_foot_controls
+    100036: R_fore_arm
+    100038: R_hand
+    100040: R_leg
+    100042: R_Shoulder
+    100044: R_upper_leg
+    100046: Spine
+    100048: Spine1
+    100050: tail
+    100052: tail_end
+    100054: tail_mid
+    100056: tailbase
+    100058: transform1
+    100060: transform2
+    100062: transform3
+    400000: body
+    400002: body_control
+    400004: Head
+    400006: head
+    400008: Hip
+    400010: L_arm
+    400012: L_foot
+    400014: L_foot_controls
+    400016: L_fore_arm
+    400018: L_hand
+    400020: L_leg
+    400022: L_Shoulder
+    400024: L_upper_leg
+    400026: //RootNode
+    400028: Neck
+    400030: R_arm
+    400032: R_foot
+    400034: R_foot_controls
+    400036: R_fore_arm
+    400038: R_hand
+    400040: R_leg
+    400042: R_Shoulder
+    400044: R_upper_leg
+    400046: Spine
+    400048: Spine1
+    400050: tail
+    400052: tail_end
+    400054: tail_mid
+    400056: tailbase
+    400058: transform1
+    400060: transform2
+    400062: transform3
+    2100000: pink1
+    2100002: white2
+    2100004: black
+    2100006: l_coffee1
+    2100008: pink2
+    2100010: coffee1
+    2100012: coffee2
+    4300000: head
+    4300002: body
+    4300004: tail
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: body
+    13700002: head
+    13700004: tail
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
