@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
+
+        if (Input.GetKey("F"))
+            Hit();
     }
 
     void Move()
@@ -32,14 +35,14 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetAxis("Vertical") != 0)
         {
-            anim.SetInteger("moveCondition", 1);
+            anim.SetInteger("condition", 1);
             moveDir = new Vector3(0, 0, Input.GetAxis("Vertical"));
             moveDir *= speed;
             moveDir = transform.TransformDirection(moveDir);
         }
         else
         {
-            anim.SetInteger("moveCondition", 0);
+            anim.SetInteger("condition", 0);
             moveDir = new Vector3(0, 0, 0);
         }
 
@@ -47,6 +50,11 @@ public class PlayerController : MonoBehaviour
         transform.eulerAngles = new Vector3(0, rot, 0);
 
         controller.Move(moveDir * Time.deltaTime);
+    }
+
+    void Hit()
+    {
+        //anim.SetBool("hitCondition", true);
     }
 
 }
