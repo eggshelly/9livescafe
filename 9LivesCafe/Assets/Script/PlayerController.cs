@@ -35,14 +35,14 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetAxis("Vertical") != 0)
         {
-            anim.SetInteger("condition", 1);
+            anim.SetInteger("walk", 1);
             moveDir = new Vector3(0, 0, Input.GetAxis("Vertical"));
             moveDir *= speed;
             moveDir = transform.TransformDirection(moveDir);
         }
         else
         {
-            anim.SetInteger("condition", 0);
+            anim.SetInteger("walk", 0);
             moveDir = new Vector3(0, 0, 0);
         }
 
