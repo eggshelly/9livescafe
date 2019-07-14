@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
     void Hit()
     {
-        //anim.SetBool("hitCondition", true);
+        anim.SetBool("hitCondition", true);
     }
 
 }
