@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     {
         Move();
 
-        if (Input.GetKey("F"))
+        if (Input.GetKey(KeyCode.F))
             Hit();
     }
 
@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
     void Hit()
     {
-        anim.SetBool("hitCondition", true);
+        anim.Play("Combat_punch1");//play it once
     }
 
 }
