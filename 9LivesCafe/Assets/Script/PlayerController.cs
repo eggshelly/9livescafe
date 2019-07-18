@@ -24,13 +24,22 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Move();
+        move();
 
-        if (Input.GetKey(KeyCode.F))
-            Hit();
+        if (Input.GetKeyDown(KeyCode.F) && anim.GetBool("inCombat"))
+            hit1();
+        if (Input.GetKeyDown(KeyCode.G) && anim.GetBool("inCombat"))
+            hit2();
+        if (Input.GetKeyDown(KeyCode.E))    //TODO: delete/replace code with nontesting code
+            testSwitchHoldingItem();
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+            switchCombatMode();
+        if (Input.GetKeyDown(KeyCode.Space) && anim.GetBool("inCombat"))
+            slide();
+
     }
 
-    void Move()
+    void move()
     {
 
         if (Input.GetAxis("Vertical") != 0)
@@ -52,9 +61,31 @@ public class PlayerController : MonoBehaviour
         controller.Move(moveDir * Time.deltaTime);
     }
 
-    void Hit()
+    void hit1()
     {
         anim.Play("Combat_punch1");//play it once
+    }
+    void hit2()
+    {
+        anim.Play("Combat_punch2");//play it once
+    }
+    
+    void slide()
+    {
+        anim.Play("Combat_slide");
+    }
+
+    void switchCombatMode()
+    {
+        bool combat = anim.GetBool("inCombat");
+        anim.SetBool("inCombat", !combat);
+    }
+
+    void testSwitchHoldingItem()
+    {       //TODO: delete
+        //testing code for animation transition
+        bool holding = anim.GetBool("holdingCafeItem");
+        anim.SetBool("holdingCafeItem", !holding);
     }
 
 }
