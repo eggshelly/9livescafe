@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class npcController : MonoBehaviour
 {
-    public enum ProcessState
-    {
-        Inactive,
-
-
-    }
     void Start()
     {
         
