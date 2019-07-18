@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: baac460f9bf4d6a4bb36e7f800e86b6a
+guid: f63a80a87e6153a4c8072ed2aa647fee
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: idel_hold
+    second: Combat_idle
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -35,18 +35,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: idel_hold
+      name: Combat_idle
       takeName: Take 001
       internalID: 1827226128182048838
-      firstFrame: 2
-      lastFrame: 38
+      firstFrame: 1
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
