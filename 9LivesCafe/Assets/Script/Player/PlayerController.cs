@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,12 +10,14 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private Vector3 moveDir = Vector3.zero;
 
+    public UnityEvent onInteraction;
+
     [Header("Player Movement Controls")]
     public float speed = 4f;
     public float rotSpeed = 80f;
     float rot = 0f;
 
-    [Header("Player Keybinds")]
+    [Header("Player Keybinds, temp for testing)")]
     public KeyCode interact = KeyCode.Space;
     public KeyCode toggleCombat = KeyCode.LeftShift;
     public KeyCode combatSlide = KeyCode.E;
@@ -39,7 +42,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(combatHit2) && anim.GetBool("inCombat"))
             hit2();
         if (Input.GetKeyDown(interact))    //TODO: delete/replace code with nontesting code
+        {
             testSwitchHoldingItem();
+            onInteraction.Invoke();
+        }
         if (Input.GetKeyDown(toggleCombat))
             switchCombatMode();
         if (Input.GetKeyDown(combatSlide) && anim.GetBool("inCombat"))
@@ -87,6 +93,11 @@ public class PlayerController : MonoBehaviour
     {
         bool combat = anim.GetBool("inCombat");
         anim.SetBool("inCombat", !combat);
+        if (combat) //if incombat switch to idel
+            anim.CrossFade("idle",0.1f);
+        else
+            anim.CrossFade("Combat_idle", 0.1f);
+            
     }
 
     void testSwitchHoldingItem()

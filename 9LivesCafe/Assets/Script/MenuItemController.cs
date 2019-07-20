@@ -5,8 +5,9 @@ using UnityEngine;
 public class MenuItemController : MonoBehaviour
 {
 
-    [SerializeField] private Vector3 CenterPosition;
-    [SerializeField] private Vector3 CenterRotation;
+    [SerializeField] private Vector3 attachPosition;
+    [SerializeField] private Vector3 attachRotation;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,6 @@ public class MenuItemController : MonoBehaviour
         
     }
 
-    public Vector3 getCenterPosition() { return CenterPosition; }
-    public Vector3 getCenterRotaion() { return CenterRotation; }
+    public Vector3 getAttachPosition() { return attachPosition; }
+    public Vector3 getAttachRotaion() { return attachRotation; }
 }
