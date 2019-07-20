@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerItemController : MonoBehaviour
 {
-    private const string holdingHand = "R_hand";
+    private const string holdingHand = "Hip/Spine/Spine1/transform2/R_Shoulder/R_arm/R_fore_arm/R_hand";
     private GameObject hand;
     private void Awake()
     {
         //cache's hand object to use later
-        hand = transform.FindChild(holdingHand).gameObject;
+        hand = this.transform.Find(holdingHand).gameObject;
 
         //lister, for when item is picked up
         OrderPickUp orderPickUp = GameObject.FindGameObjectWithTag("orderPickUp").GetComponent<OrderPickUp>();
@@ -29,13 +29,13 @@ public class PlayerItemController : MonoBehaviour
 
     public void getItem(GameObject item)
     {
-        MenuItemController itemController = item.GetComponent<MenuItemController>();
-        item.SetActive(true);
+        GameObject newitem = Instantiate(item, hand.transform.position, hand.transform.rotation);
+        MenuItemController itemController = newitem.GetComponent<MenuItemController>();
         //makes the item a child of the hand
-        item.transform.parent = hand.transform;
+        newitem.transform.SetParent(hand.transform);
         //sets the local position to the saved center piviot point
-        item.transform.localPosition = itemController.getAttachPosition();
-        item.transform.localEulerAngles = itemController.getAttachRotaion();
+        newitem.transform.localPosition = itemController.getAttachPosition();
+        newitem.transform.localEulerAngles = itemController.getAttachRotaion();
     }
 
     public void placeItem()
