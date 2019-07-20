@@ -5,8 +5,8 @@ using UnityEngine;
 public class MenuItemController : MonoBehaviour
 {
 
-    [SerializeField] private Vector3 PickPosition;
-    [SerializeField] private Vector3 PickRotation;
+    [SerializeField] private Vector3 CenterPosition;
+    [SerializeField] private Vector3 CenterRotation;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,4 +18,7 @@ public class MenuItemController : MonoBehaviour
     {
         
     }
+
+    public Vector3 getCenterPosition() { return CenterPosition; }
+    public Vector3 getCenterRotaion() { return CenterRotation; }
 }

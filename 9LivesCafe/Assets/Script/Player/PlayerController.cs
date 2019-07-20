@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+   
+    private CharacterController controller;
+    private Animator anim;
+    private Vector3 moveDir = Vector3.zero;
 
-    //RigidBody m_RigidBody;
-    CharacterController controller;
-    Animator anim;
-
-    Vector3 moveDir = Vector3.zero;
-
-    public float speed    = 4f;
+    [Header("Player Movement Controls")]
+    public float speed = 4f;
     public float rotSpeed = 80f;
     float rot = 0f;
+
+    [Header("Player Keybinds")]
+    public KeyCode interact = KeyCode.Space;
+    public KeyCode toggleCombat = KeyCode.LeftShift;
+    public KeyCode combatSlide = KeyCode.E;
+    public KeyCode combatHit1 = KeyCode.F;
+    public KeyCode combatHit2 = KeyCode.G;
+
+
 
     void Start()
     {
@@ -26,15 +34,15 @@ public class PlayerController : MonoBehaviour
     {
         move();
 
-        if (Input.GetKeyDown(KeyCode.F) && anim.GetBool("inCombat"))
+        if (Input.GetKeyDown(combatHit1) && anim.GetBool("inCombat"))
             hit1();
-        if (Input.GetKeyDown(KeyCode.G) && anim.GetBool("inCombat"))
+        if (Input.GetKeyDown(combatHit2) && anim.GetBool("inCombat"))
             hit2();
-        if (Input.GetKeyDown(KeyCode.E))    //TODO: delete/replace code with nontesting code
+        if (Input.GetKeyDown(interact))    //TODO: delete/replace code with nontesting code
             testSwitchHoldingItem();
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(toggleCombat))
             switchCombatMode();
-        if (Input.GetKeyDown(KeyCode.Space) && anim.GetBool("inCombat"))
+        if (Input.GetKeyDown(combatSlide) && anim.GetBool("inCombat"))
             slide();
 
     }
