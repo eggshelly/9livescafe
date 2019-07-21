@@ -955,6 +955,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ade09030e397b8241b4cf86703dc9985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onOrderDropOff:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1551405555 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 102f0980925a16a4393b90fcece981f2,
