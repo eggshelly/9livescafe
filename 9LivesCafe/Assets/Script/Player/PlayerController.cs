@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     float rot = 0f;
 
     [Header("Player Keybinds, temp for testing)")]
-    public KeyCode interact = KeyCode.Space;
+    public KeyCode interaction = KeyCode.Space;
     public KeyCode toggleCombat = KeyCode.LeftShift;
     public KeyCode combatSlide = KeyCode.E;
     public KeyCode combatHit1 = KeyCode.F;
@@ -36,16 +36,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         move();
+        interact();
 
         if (Input.GetKeyDown(combatHit1) && anim.GetBool("inCombat"))
             hit1();
         if (Input.GetKeyDown(combatHit2) && anim.GetBool("inCombat"))
             hit2();
-        if (Input.GetKeyDown(interact))    //TODO: delete/replace code with nontesting code
-        {
-            testSwitchHoldingItem();
-            onInteraction.Invoke();
-        }
+        
         if (Input.GetKeyDown(toggleCombat))
             switchCombatMode();
         if (Input.GetKeyDown(combatSlide) && anim.GetBool("inCombat"))
@@ -75,21 +72,21 @@ public class PlayerController : MonoBehaviour
         controller.Move(moveDir * Time.deltaTime);
     }
 
-    void hit1()
+    public void hit1()
     {
         anim.Play("Combat_punch1");//play it once
     }
-    void hit2()
+    public void hit2()
     {
         anim.Play("Combat_punch2");//play it once
     }
     
-    void slide()
+    public void slide()
     {
         anim.Play("Combat_slide");
     }
 
-    void switchCombatMode()
+    public void switchCombatMode()
     {
         bool combat = anim.GetBool("inCombat");
         anim.SetBool("inCombat", !combat);
@@ -100,9 +97,16 @@ public class PlayerController : MonoBehaviour
             
     }
 
-    void testSwitchHoldingItem()
-    {       //TODO: delete
-        //testing code for animation transition
+    private void interact()
+    {
+        if (Input.GetKeyDown(interaction))    //TODO: delete/replace code with nontesting code
+        {
+            onInteraction.Invoke();
+        }
+    }
+    public void switchHoldingItem()
+    {
+        //animation transition
         bool holding = anim.GetBool("holdingCafeItem");
         anim.SetBool("holdingCafeItem", !holding);
     }

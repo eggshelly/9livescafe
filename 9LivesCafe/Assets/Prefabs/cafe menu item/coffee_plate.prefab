@@ -24,8 +24,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4414734613280352469}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.819, y: 0.533, z: -0.885}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4414734613280584951}
@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a41e703e792a84f821b1b55f9728ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PickPosition: {x: 0.462, y: 0.516, z: -0.793}
-  PickRotation: {x: 0.274, y: 25.311, z: -1.347}
+  attachPosition: {x: -0.05, y: 0.17, z: 0}
+  attachRotation: {x: 0, y: -75.8, z: 0}
 --- !u!1 &4414734613280352471
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,8 +71,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4414734613280352471}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.26855162, y: 0.7650102, z: 0.85445124}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4414734613280584949}
