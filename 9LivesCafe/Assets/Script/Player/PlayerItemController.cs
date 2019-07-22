@@ -22,7 +22,7 @@ public class PlayerItemController : MonoBehaviour
 
         //listener, for when item is dropped off
         OrderDropOff orderDropOff = GameObject.FindGameObjectWithTag("orderDropOff").GetComponent<OrderDropOff>();
-        orderDropOff.onOrderDropOff.AddListener(() => placeItem());
+        orderDropOff.onOrderDropOff.AddListener(() => dropOff());
     }
     // Start is called before the first frame update
     void Start()
@@ -61,23 +61,43 @@ public class PlayerItemController : MonoBehaviour
 
     //TODO: make a verson which places the item on the tabel, and a version that dumps the item (e.g just gets rid of it)
 
-    public GameObject dropItem()
+    public void dropOff()
     {
-        GameObject rtn = hand.transform.GetChild(0).gameObject;
-        Destroy(rtn);
-        return rtn;
+        //if currently holding item, can throw it away.
+        if (currHolding)
+        {
+            GameObject holding = hand.transform.GetChild(0).gameObject;
+            bool placedOrder;
+            if (true)//player is not holding a plate
+            {
+                if (placeItem(holding)) //if the item is what the customer ordered
+                {
+                    dropHoldingItem(holding);
+                }
+            }
+            else
+            {
+                dropHoldingItem(holding);
+            }
+        }
     }
 
-    public void placeItem()
-    {
-        if (currHolding)    //if currently holding item, can throw it away.
-        {
-            //switch mc animation to holding
-            //Instantiate(dropItem(), Vector3.zero, Quaternion.identity);   //the dropped item can still be spawned
-            playerController.switchHoldingItem();
 
-            currHolding = null;
+    public bool placeItem(GameObject holdingItem)
+    {
+        if(true)//compare to what customer wants.
+        {
+            //place it on table & take away customer needed order..
+            return true;
         }
-       
+
+        return false;
+    }
+
+    private void dropHoldingItem(GameObject holding)
+    {
+        Destroy(holding);
+        playerController.switchHoldingItem();
+        currHolding = null;
     }
 }
