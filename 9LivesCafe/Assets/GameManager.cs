@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject[] customers;
+    [SerializeField] private GameObject[] customers;
+    public string[] orderNames;
     public int custLimit = 5;
-
+    
     int custCount = 0;
 
-    void Start()
+    void Awake()
     {
         InvokeRepeating("AddCustomer", 3.0f, 5.0f);
     }

@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
     {
         bool combat = anim.GetBool("inCombat");
         anim.SetBool("inCombat", !combat);
-        if (combat) //if incombat switch to idel
+        if (combat) //if incombat switch to idle
             anim.CrossFade("idle",0.1f);
         else
             anim.CrossFade("Combat_idle", 0.1f);
