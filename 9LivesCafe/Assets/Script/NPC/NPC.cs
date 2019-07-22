@@ -6,5 +6,10 @@ using UnityEngine;
 public class NPC
 {
     public GameObject npc;
+    public NPC(GameObject cNpc)
+    {
+        npc = cNpc;
+    }
+   
 }
 
