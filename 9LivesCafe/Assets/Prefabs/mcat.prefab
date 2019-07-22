@@ -786,8 +786,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b11e404383f6b74986f142c0c3fe64c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onInteraction:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   speed: 4
   rotSpeed: 200
+  interaction: 32
+  toggleCombat: 304
+  combatSlide: 101
+  combatHit1: 102
+  combatHit2: 103
 --- !u!114 &5519922206332321708
 MonoBehaviour:
   m_ObjectHideFlags: 0

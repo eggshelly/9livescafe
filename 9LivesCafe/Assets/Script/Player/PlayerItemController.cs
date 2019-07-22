@@ -6,6 +6,7 @@ public class PlayerItemController : MonoBehaviour
 {
     private const string holdingHand = "Hip/Spine/Spine1/transform2/R_Shoulder/R_arm/R_fore_arm/R_hand";
     private GameObject hand;
+    private GameObject currHolding;
     private PlayerController playerController;
 
     private void Awake()
@@ -37,15 +38,25 @@ public class PlayerItemController : MonoBehaviour
 
     public void getItem(GameObject item)
     {
-        GameObject newitem = Instantiate(item, hand.transform.position, hand.transform.rotation);
-        MenuItemController itemController = newitem.GetComponent<MenuItemController>();
-        //makes the item a child of the hand
-        newitem.transform.SetParent(hand.transform);
-        //sets the local position to the saved center piviot point
-        newitem.transform.localPosition = itemController.getAttachPosition();
-        newitem.transform.localEulerAngles = itemController.getAttachRotaion();
-        //switch mc animation to holding
-        playerController.switchHoldingItem();
+        if (!currHolding) //can only hold something if not holding anything
+        {
+            GameObject newitem = Instantiate(item, hand.transform.position, hand.transform.rotation);       //TODO: if the item is a order don't spawn anything (or maybe add seprate animation)
+            MenuItemController itemController = newitem.GetComponent<MenuItemController>();
+            //makes the item a child of the hand
+            newitem.transform.SetParent(hand.transform);
+            //sets the local position to the saved center piviot point
+            newitem.transform.localPosition = itemController.getAttachPosition();
+            newitem.transform.localEulerAngles = itemController.getAttachRotaion();
+            //switch mc animation to holding
+            playerController.switchHoldingItem();
+
+            currHolding = item;
+        }
+        else
+        {
+            Debug.Log("TODO UPLOAD ERROR IN CANVAS THAT YOU CANNOT CARRY MORE THAN ONE ITEM");
+        }
+        
     }
 
     //TODO: make a verson which places the item on the tabel, and a version that dumps the item (e.g just gets rid of it)
@@ -59,8 +70,14 @@ public class PlayerItemController : MonoBehaviour
 
     public void placeItem()
     {
-        //switch mc animation to holding
-        Instantiate(dropItem(), Vector3.zero, Quaternion.identity);
-        playerController.switchHoldingItem();
+        if (currHolding)    //if currently holding item, can throw it away.
+        {
+            //switch mc animation to holding
+            //Instantiate(dropItem(), Vector3.zero, Quaternion.identity);   //the dropped item can still be spawned
+            playerController.switchHoldingItem();
+
+            currHolding = null;
+        }
+       
     }
 }
