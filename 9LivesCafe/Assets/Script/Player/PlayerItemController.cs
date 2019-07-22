@@ -67,7 +67,6 @@ public class PlayerItemController : MonoBehaviour
         if (currHolding)
         {
             GameObject holding = hand.transform.GetChild(0).gameObject;
-            bool placedOrder;
             if (true)//player is not holding a plate
             {
                 if (placeItem(holding)) //if the item is what the customer ordered
