@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a41e703e792a84f821b1b55f9728ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: plate
   attachPosition: {x: -0.05, y: 0.11, z: 0}
   attachRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &4826343754683034187

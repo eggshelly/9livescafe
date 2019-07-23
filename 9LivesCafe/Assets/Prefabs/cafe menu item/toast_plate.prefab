@@ -127,5 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a41e703e792a84f821b1b55f9728ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: eggToast
+  cooktime: 3
   attachPosition: {x: -0.05, y: 0.11, z: 0}
   attachRotation: {x: 0, y: 35.203, z: 0}

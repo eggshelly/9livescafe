@@ -5,12 +5,7 @@ using UnityEngine;
 
 public class Order
 {
-    public GameObject order;
-
-    public Order(string name)
-    {
-
-    }
+    private GameObject order;
     //NOTHING YET
     //VERIFY NAME IS WITHIN GAME MANAGER
 }

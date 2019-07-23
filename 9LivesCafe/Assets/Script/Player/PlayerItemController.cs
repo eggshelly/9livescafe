@@ -7,6 +7,7 @@ public class PlayerItemController : MonoBehaviour
     private const string holdingHand = "Hip/Spine/Spine1/transform2/R_Shoulder/R_arm/R_fore_arm/R_hand";
     private GameObject hand;
     private GameObject currHolding;
+    private MenuItemController itemController;
     private PlayerController playerController;
 
     private void Awake()
@@ -40,24 +41,30 @@ public class PlayerItemController : MonoBehaviour
     {
         if (!currHolding) //can only hold something if not holding anything
         {
-            GameObject newitem = Instantiate(item, hand.transform.position, hand.transform.rotation);       //TODO: if the item is a order don't spawn anything (or maybe add seprate animation)
-            MenuItemController itemController = newitem.GetComponent<MenuItemController>();
-            //makes the item a child of the hand
-            newitem.transform.SetParent(hand.transform);
-            //sets the local position to the saved center piviot point
-            newitem.transform.localPosition = itemController.getAttachPosition();
-            newitem.transform.localEulerAngles = itemController.getAttachRotaion();
-            //switch mc animation to holding
-            playerController.switchHoldingItem();
-
-            currHolding = item;
+            setHolding(item);
+            if (itemController.getRequest())
+            {
+                Debug.Log("currently holding a request");
+            }
+            else
+            {
+                GameObject newitem = Instantiate(item, hand.transform.position, hand.transform.rotation);
+                //makes the item a child of the hand
+                newitem.transform.SetParent(hand.transform);
+                //sets the local position to the saved center piviot point
+                newitem.transform.localPosition = itemController.getAttachPosition();
+                newitem.transform.localEulerAngles = itemController.getAttachRotaion();
+                //switch mc animation to holding
+                playerController.switchHoldingItem();
+            }
         }
         else
         {
-            Debug.Log("TODO UPLOAD ERROR IN CANVAS THAT YOU CANNOT CARRY MORE THAN ONE ITEM");
+            Debug.Log("TODO UPLOAD ERROR IN CANVAS THAT YOU ARE ALREADY HOLDING AN ITEM");
         }
         
     }
+
 
     //TODO: make a verson which places the item on the tabel, and a version that dumps the item (e.g just gets rid of it)
 
@@ -66,37 +73,56 @@ public class PlayerItemController : MonoBehaviour
         //if currently holding item, can throw it away.
         if (currHolding)
         {
-            GameObject holding = hand.transform.GetChild(0).gameObject;
-            if (true)//player is not holding a plate
+            if(itemController.getRequest())
             {
-                if (placeItem(holding)) //if the item is what the customer ordered
-                {
-                    dropHoldingItem(holding);
-                }
+                //drop off to kitchen
+                dropRequest();
+                return;
+            }
+            GameObject holding = hand.transform.GetChild(0).gameObject;
+            if (itemController.getName().Equals("plate"))//player is holding a plate
+            {
+                dropHoldingItem(holding);
             }
             else
             {
-                dropHoldingItem(holding);
+                placeItem(holding); //if the item is what the customer ordered
+
             }
         }
     }
 
 
-    public bool placeItem(GameObject holdingItem)
+    private void placeItem(GameObject holding)
     {
         if(true)//compare to what customer wants.
         {
             //place it on table & take away customer needed order..
-            return true;
+            dropHoldingItem(holding);   //drop it from player's hand and spawn one on the tabel?
+                //TODO: OR MOVE THIS ONE FROM PLAYER TO TABLE, NO NEED TO DESTORY.
         }
-
-        return false;
+        else
+        {
+            Debug.Log("this is not what the customer wanted!");
+        }
     }
 
     private void dropHoldingItem(GameObject holding)
     {
         Destroy(holding);
         playerController.switchHoldingItem();
-        currHolding = null;
+        setHolding(null);
+    }
+    private void dropRequest()
+    {
+        //TODO: interact with kitchen
+        setHolding(null);
+    }
+
+    private void setHolding(GameObject item = null)
+    {
+        currHolding = item;
+        if(!currHolding)
+            itemController = item.GetComponent<MenuItemController>();
     }
 }
