@@ -45,6 +45,7 @@ public class PlayerItemController : MonoBehaviour
             if (itemController.getRequest())
             {
                 Debug.Log("currently holding a request");
+                //holding request to drop off to kitchen
             }
             else
             {
