@@ -2,8 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class kitchenScript : MonoBehaviour
+public class KitchenPickUp : MonoBehaviour
 {
+
+    private KitchenDropOff dropOff;
+
+    private void Awake()
+    {
+        dropOff = GetComponentInParent<KitchenDropOff>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +21,10 @@ public class kitchenScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public GameObject getOrder()
+    {
+        return dropOff.getItem();
     }
 }

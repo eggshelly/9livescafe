@@ -5,12 +5,11 @@ using UnityEngine;
 public class TableManager : MonoBehaviour
 {
     private bool playerInRange = false;
-    [SerializeField] private int numSeats = 2;
     [SerializeField] private GameObject[] seats;
 
     private void Awake()
     {
-        seats = new GameObject[numSeats];
+
         PlayerController playerComponent = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         playerComponent.onInteraction.AddListener(() => placeCustomer());
     }

@@ -10,6 +10,9 @@ public class PlayerItemController : MonoBehaviour
     private MenuItemController itemController;
     private PlayerController playerController;
 
+    public GameobjectUnityEvent onKitchenDropOff = new GameobjectUnityEvent();
+        //invoked when the player is in the kitchen trigger and drops off an item, listener in KitchenScript
+
     private void Awake()
     {
         playerController = this.gameObject.GetComponent<PlayerController>();
@@ -77,6 +80,7 @@ public class PlayerItemController : MonoBehaviour
             if(itemController.getRequest())
             {
                 //drop off to kitchen
+                onKitchenDropOff.Invoke(currHolding);
                 dropRequest();
                 return;
             }

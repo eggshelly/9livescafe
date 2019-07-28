@@ -47,7 +47,15 @@ public class OrderPickUp : MonoBehaviour
     public void onPickUp()
     {
         if (playerInRange) {
-            onOrderPickUp.Invoke(temp);
+            if (this.CompareTag("customer"))
+            {
+                //call customer.getOrder
+            }
+            else
+            {
+                onOrderPickUp.Invoke(temp);
+            }
+            
         }
     }
 }
