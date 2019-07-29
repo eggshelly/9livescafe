@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 4f;
     public float rotSpeed = 80f;
     float rot = 0f;
-    public float radarDistance = 5f;
+    public float radarDistance = 1.5f;
 
     [Header("Player Keybinds, temp for testing)")]
     public KeyCode interaction = KeyCode.Space;
@@ -102,7 +102,6 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(interaction))    //TODO: delete/replace code with nontesting code
         {
-            NPC n = closestNPC();
             onInteraction.Invoke();
         }
     }
@@ -113,16 +112,15 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("holdingCafeItem", !holding);
     }
 
-    //Returns closest NPC if an NPC is near player, else NULL.
-    NPC closestNPC()
+    //Returns closest NPC if an NPC is near player.
+    public CafeNPC closestCustomer()
     {
-        
-        NPC closest = null;
+        CafeNPC closest = null;
+
         float tempDist = radarDistance;
 
-        foreach ( NPC npc in GameManager.instance.activeNPC)
+        foreach ( CafeNPC npc in GameManager.instance.activeNPC)
         {
-            Debug.Log("CHECK IN: " + npc.npcObj.transform.position);
             Vector3 diff = (npc.npcObj.transform.position - GetComponent<Transform>().position);
             float curDistance = diff.sqrMagnitude;
 
@@ -133,7 +131,6 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        //Debug.Log("CHECK: " + tempDist + " ");
         return closest;
     }
 }
