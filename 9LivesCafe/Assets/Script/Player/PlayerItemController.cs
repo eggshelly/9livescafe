@@ -28,18 +28,7 @@ public class PlayerItemController : MonoBehaviour
         OrderDropOff orderDropOff = GameObject.FindGameObjectWithTag("orderDropOff").GetComponent<OrderDropOff>();
         orderDropOff.onOrderDropOff.AddListener(() => dropOff());
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+  
     public void getItem(GameObject item)
     {
         if (!currHolding) //can only hold something if not holding anything

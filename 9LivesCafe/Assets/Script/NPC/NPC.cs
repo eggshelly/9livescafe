@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class NPC
 {
-    public GameObject npc;
+    public GameObject npcObj;
     public NPC(GameObject cNpc)
     {
-        npc = cNpc;
+        npcObj = cNpc;
     }
    
 }

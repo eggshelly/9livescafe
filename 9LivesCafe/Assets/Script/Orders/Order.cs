@@ -5,7 +5,11 @@ using UnityEngine;
 
 public class Order
 {
-    private GameObject order;
+    public GameObject orderObj;
+    public Order(GameObject cOrder)
+    {
+        orderObj = cOrder;
+    }
     //NOTHING YET
-    //VERIFY NAME IS WITHIN GAME MANAGER
+    //VERIFY OBJ IS WITHIN GAME MANAGER
 }

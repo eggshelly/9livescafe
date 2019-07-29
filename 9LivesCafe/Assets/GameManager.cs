@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
     [SerializeField] private GameObject[] customers;
     [SerializeField] private GameObject[] orders;
     [SerializeField] private int custLimit = 5;
     
     private int custCount = 0;
-    private Queue activeNPC = new Queue();
+    public Queue activeNPC = new Queue();
 
     void Awake()
     {
+        if (instance == null)
+            instance = this;
+            
         InvokeRepeating("AddCustomer", 1.0f, 5.0f);
     }
 
@@ -25,13 +30,19 @@ public class GameManager : MonoBehaviour
     {
         if (custCount < custLimit)
         {
-            //Chooses NPC customer at random and enqueue to activeNPC
-            NPC newNPC = new NPC(customers[Random.Range(0, customers.Length)]);
+            //Chooses NPC customer obj at random and Places NPC game object into the scene at current place.
+            GameObject newNPCobj = Instantiate(customers[Random.Range(0, customers.Length)], new Vector3(-5.5f, 0, custCount), transform.rotation * Quaternion.Euler(0f, 180f, 0f));
+
+            //Creates new CafeNPC object and enqueues it to activeNPC.
+            CafeNPC newNPC = new CafeNPC(newNPCobj, orders[Random.Range(0, orders.Length)]);
             activeNPC.Enqueue(newNPC);
 
-            //Places NPC game object into the scene at current place and inc cust count
-            Instantiate(newNPC.npc, new Vector3(-5.5f, 0, custCount), transform.rotation * Quaternion.Euler(0f, 180f, 0f));
             custCount++;
+        }
+
+        else
+        {
+            Debug.Log("Customer limit hit!");
         }
     }
 }
