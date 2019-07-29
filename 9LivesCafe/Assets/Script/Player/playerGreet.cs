@@ -55,7 +55,7 @@ public class playerGreet : MonoBehaviour
         CafeNPC tNPC = pInstance.closestCustomer();
         if (tNPC != null && tNPC.state == ProcessState.WaitingForGreet);
         {
-            npc = (CafeNPC) GameManager.instance.activeNPC.Peek();
+            npc = (CafeNPC)GameManager.instance.firstCustomer(ProcessState.WaitingForGreet);
             npc.npcObj.transform.LookAt(player.transform);
         }
     }

@@ -45,4 +45,17 @@ public class GameManager : MonoBehaviour
             Debug.Log("Customer limit hit!");
         }
     }
+
+    //returns first CafeNPC from activeNPC queue that fits state description. Returns null if there are no CafeNPC objects in that state.
+    public CafeNPC firstCustomer(ProcessState state)
+    {
+        foreach (CafeNPC npc in GameManager.instance.activeNPC)
+        {
+            if (npc.state == state)
+                return npc;
+        }
+
+        return null;
+        
+    }
 }
