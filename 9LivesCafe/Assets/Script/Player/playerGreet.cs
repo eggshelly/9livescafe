@@ -8,7 +8,7 @@ public class playerGreet : MonoBehaviour
     private PlayerController pInstance;
 
     public float speed;
-    public float maxDist = 10f;
+    public float maxDist = 3.0f;
 
     private CafeNPC npc = null;
     private RaycastHit hit;
@@ -34,8 +34,8 @@ public class playerGreet : MonoBehaviour
         GameObject npcObj = npc.npcObj;
 
         var dist = (npcObj.transform.position - player.transform.position).magnitude;
-        Debug.Log(dist);
-        if (dist >= maxDist)
+        Debug.Log(Mathf.Pow(dist, 2));
+        if (Mathf.Pow(dist,2) >= maxDist)
         {
             speed = 0.05f;
             npc.npcObj.transform.LookAt(player.transform);

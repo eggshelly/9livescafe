@@ -1555,7 +1555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1043786036}
   speed: 2
-  followDist: 5
+  maxDist: 1.5
 --- !u!4 &1544315064
 Transform:
   m_ObjectHideFlags: 0
